@@ -5,12 +5,12 @@ CFLAGS = -Wall -Wextra -std=c99
 all: kmeans_app tests_app
 
 # Сборка основной программы
-kmeans_app: main.c kmeans.c kmeans.h
-	$(CC) $(CFLAGS) main.c kmeans.c -o kmeans_app
+kmeans_app: main.c kmeans.c dbscan.c kmeans.h
+	$(CC) $(CFLAGS) main.c kmeans.c dbscan.c -o kmeans_app
 
 # Сборка тестов
-tests_app: tests.c kmeans.c kmeans.h
-	$(CC) $(CFLAGS) tests.c kmeans.c -o tests_app
+tests_app: tests.c kmeans.c dbscan.c kmeans.h
+	$(CC) $(CFLAGS) tests.c kmeans.c dbscan.c -o tests_app
 
 # Главная команда: компилируем, запускаем тесты, запускаем Python
 run: kmeans_app tests_app
